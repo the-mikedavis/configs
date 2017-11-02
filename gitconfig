@@ -1,0 +1,24 @@
+[user]
+	name = Michael Davis
+	email = rubiksmaster65@yahoo.com
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[alias]
+    git = !exec git
+    sha = rev-parse HEAD
+    st = status
+    br = branch
+    cia = commit -a
+    ci = commit
+	co = checkout
+    unstage = reset HEAD --
+    ph = push
+    pl = pull
+    subdate = submodule update --init --recursive
+[core]
+	editor = vim
