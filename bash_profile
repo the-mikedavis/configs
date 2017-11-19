@@ -23,9 +23,9 @@ alias see="exa"
 #alias cd..="cd .."
 
 #   alias to exa every time I cd
-function cd() {
-    command cd $@; command exa
-}
+#function cd() {
+#    command cd $@; command exa
+#}
 
 #   function to go into the directory if there is only one made
 function mkdir() {
@@ -44,7 +44,7 @@ export HISTSIZE=100
 
 #   Aliases to run python 3 instead of python 2
 alias py="python3"
-alias pip="pip3"
+#alias pip="pip3"
 
 #   Alias to get tmux with colors
 alias tmux="TERM=screen-256color-bce tmux"
@@ -67,13 +67,13 @@ function tkill() {
 }
 
 PATH=$HOME/bin:$PATH:/opt/metasploit-framework/bin:/Users/michael/bin/apache-maven-3.5.2/bin:
-export PATH=$PATH:/opt/metasploit-framework/bin
+export PATH=$PATH:/opt/metasploit-framework/bin:/Users/michael/assimp/bin
 export MONO_GAC_PREFIX="/usr/local"
 
 #   typo
 alias celar="clear"
 
-alias ai="cd ~/now/artificialintelligence/assignments"
+alias ai="cd ~/now/ai/assignments"
 alias uni="cd ~/now/unic/assignments"
 
 alias shred="rm -Pfv"
@@ -88,3 +88,7 @@ alias tard="tar -zvcf"
 
 alias untar="tar -zvxf"
 
+alias mvnew="mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=org.openjdk.jmh -DarchetypeArtifactId=jmh-java-benchmark-archetype -DgroupId=org.sample -DartifactId=bench -Dversion=1.0"
+
+
+PKGMG=brew
