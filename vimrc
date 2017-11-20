@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'keith/swift.vim'
@@ -39,3 +40,15 @@ autocmd FileType make setlocal noexpandtab
 
 "   Get aliases from bash_profile
 let $BASH_ENV = "~/.bash_profile"
+
+"   Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
