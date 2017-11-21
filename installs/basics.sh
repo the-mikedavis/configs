@@ -4,4 +4,4 @@ source manager
 
 echo "Using package manager: $PKGMG"
 
-command "$PKGMG install tmux vim git zsh cmake"
+command "$PKGMG install tmux vim zsh cmake"
