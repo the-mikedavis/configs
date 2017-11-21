@@ -4,7 +4,7 @@ source manager
 
 echo "Using package manager: $PKGMG"
 
-command "$PKGMG install tmux vim git zsh"
+command "$PKGMG install tmux vim git zsh cmake"
 
 for f in *; do
     if [[ "./$f" != $0 && ! -d "$f" && "$f" != "manager" ]]; then
