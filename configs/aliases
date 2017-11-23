@@ -5,6 +5,7 @@ alias g="git"
 alias t="tmux"
 alias h="history"
 alias cr="clear"
+alias r="rm -rf"
 
 alias dev="cd ~/webdev/personal/"
 #   Alias to access the headless chrome app
