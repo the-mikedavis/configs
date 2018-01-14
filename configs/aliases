@@ -63,3 +63,5 @@ alias untar="tar -zvxf"
 alias mvnew="mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=org.openjdk.jmh -DarchetypeArtifactId=jmh-java-benchmark-archetype -DgroupId=org.sample -DartifactId=bench -Dversion=1.0"
 
 export PKGMG=brew
+
+alias wifiscan="sudo wash -i en0"
