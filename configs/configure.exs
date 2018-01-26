@@ -1,10 +1,13 @@
 # copy over all configs to ~ and append zsh aliases
 
-files =  System.ls! "copies"
+files = File.ls! "copies"
+home  = System.get_env "HOME"
 
 for f <- files do
   IO.puts "Moving #{f} to ~/.#{f}"
-  File.cp! "copies/" <> f, "~/." <> f
+  File.copy! "./copies/" <> f, home <> "/." <> f
 end
+
+IO.puts "Appending aliases to the Zsh-rc
 aliases = File.read! "./aliases"
-File.write! "~/.zshrc", aliases, [:append]
+File.write! home <> "/.zshrc", aliases, [:append]
