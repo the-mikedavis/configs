@@ -34,7 +34,7 @@ alias py="python3"
 #alias pip="pip3"
 
 #   Alias to get tmux with colors
-alias tmux="TERM=screen-256color-bce tmux"
+#alias tmux="TERM=screen-256color-bce tmux"
 
 #   Alias to easily kill a tmux session
 #   Usage: tkill [session-name]

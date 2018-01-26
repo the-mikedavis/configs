@@ -1,6 +1,6 @@
 [user]
 	name = Michael Davis
-	email = rubiksmaster65@yahoo.com
+	email = mcd164@miami.edu
 
 [filter "lfs"]
 	process = git-lfs filter-process
@@ -10,6 +10,7 @@
 
 [alias]
     git = !exec git
+    g = !exec git
     sha = rev-parse HEAD
     st = status
     br = branch
@@ -20,5 +21,8 @@
     ph = push
     pl = pull
     subdate = submodule update --init --recursive
+    what = clean -n
+    fuckthisnoise = clean -fd
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [core]
 	editor = vim

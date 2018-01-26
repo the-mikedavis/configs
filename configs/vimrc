@@ -13,11 +13,13 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tomlion/vim-solidity'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'posva/vim-vue'
+Plugin 'sudar/vim-arduino-syntax'
 
-"Plugin 'sjl/badwolf'
+Plugin 'sjl/badwolf'
 Plugin 'morhetz/gruvbox'
 "Plugin 'altercation/vim-colors-solarized'
-"Plugin 'Lokaltog/vim-distinguished'
+Plugin 'Lokaltog/vim-distinguished'
 call vundle#end()
 filetype plugin indent on
 
