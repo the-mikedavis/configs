@@ -15,6 +15,7 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'posva/vim-vue'
 Plugin 'sudar/vim-arduino-syntax'
+Plugin 'tpope/vim-haml'
 
 Plugin 'sjl/badwolf'
 Plugin 'morhetz/gruvbox'
