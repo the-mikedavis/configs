@@ -8,6 +8,6 @@ for f <- files do
   File.copy! "./copies/" <> f, home <> "/." <> f
 end
 
-IO.puts "Appending aliases to the Zsh-rc
+IO.puts "Appending aliases to the Zsh-rc"
 aliases = File.read! "./aliases"
 File.write! home <> "/.zshrc", aliases, [:append]
