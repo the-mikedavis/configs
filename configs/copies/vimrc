@@ -4,34 +4,31 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'keith/swift.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tomlion/vim-solidity'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
-Plugin 'posva/vim-vue'
 Plugin 'sudar/vim-arduino-syntax'
-Plugin 'tpope/vim-haml'
 
-Plugin 'sjl/badwolf'
-Plugin 'morhetz/gruvbox'
+"Plugin 'Lokaltog/vim-distinguished'
 "Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/vim-distinguished'
+"Plugin 'sjl/badwolf'
+Plugin 'morhetz/gruvbox'
+Plugin 'hzchirs/vim-material'
 call vundle#end()
 filetype plugin indent on
 
 set t_Co=256
-set background=dark
-let g:solarized_termcolors = 256
-let g:solarized_termtrans = 1
 "colorscheme distinguished
 "colorscheme solarized
 "colorscheme badwolf
-colorscheme gruvbox
+"colorscheme gruvbox
+"colorscheme one
+colorscheme vim-material
+set background=dark
 
 "   Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>

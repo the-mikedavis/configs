@@ -1,6 +1,6 @@
 shopt -s expand_aliases
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+#export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 
 export CLICOLOR=1
 
@@ -17,8 +17,7 @@ alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 #   Alias which runs ls with color for directories and black for files,
 alias ls="ls -GFh"
-#   Now made easier for the dvorak keyboard layout.
-alias see="exa"
+
 #   Common mistake I keep making
 #alias cd..="cd .."
 
@@ -92,3 +91,8 @@ alias mvnew="mvn archetype:generate -DinteractiveMode=false -DarchetypeGroupId=o
 
 
 PKGMG=brew
+
+alias e="exa"
+alias v="vim"
+alias c="cd"
+alias g="git"
