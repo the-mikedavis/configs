@@ -20,12 +20,15 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'sjl/badwolf'
 "Plugin 'morhetz/gruvbox'
 Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'rdavison/Libertine'
 call vundle#end()
 filetype plugin indent on
 
-set background=dark
-colorscheme hybrid_material
+"set background=dark
+"colorscheme hybrid_material
 "colorscheme hybrid_reverse
+let g:libertine_Sunset = 1
+colorscheme libertine
 
 "   Airline (bottom bar)
 let g:airline_theme = "hybrid"
