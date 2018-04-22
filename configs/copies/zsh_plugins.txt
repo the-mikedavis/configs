@@ -1,0 +1,5 @@
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+rupa/z
+denysdovhan/spaceship-prompt
+lukechilds/zsh-nvm

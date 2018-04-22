@@ -1,0 +1,15 @@
+alias e="exa"
+alias c="cd"
+alias v="vim"
+alias g="git"
+alias t="tmux"
+alias h="history"
+alias cr="clear"
+alias r="rm -rf"
+alias ty="type"
+
+alias weather='curl wttr.in'
+
+source ~/.zsh_plugins.sh
+
+alias bundleup='antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh'
