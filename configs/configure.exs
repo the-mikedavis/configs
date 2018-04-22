@@ -8,6 +8,5 @@ for f <- files do
   File.copy! "./copies/" <> f, home <> "/." <> f
 end
 
-IO.puts "Appending aliases to the Zsh-rc"
-aliases = File.read! "./aliases"
-File.write! home <> "/.zshrc", aliases, [:append]
+File.mkdir_p!(home <> "/.vim/colors")
+File.copy! "./firebird/firebird.vim", home <> "/.vim/colors/"

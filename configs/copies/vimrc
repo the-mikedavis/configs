@@ -3,65 +3,61 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-fireplace'
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-classpath'
+"Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'sudar/vim-arduino-syntax'
+"Plugin 'elixir-editors/vim-elixir'
+"Plugin 'slashmili/alchemist.vim'
+"Plugin 'sudar/vim-arduino-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'elmcast/elm-vim'
+Plugin 'sheerun/vim-polyglot'
 
-"Plugin 'Lokaltog/vim-distinguished'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'sjl/badwolf'
-"Plugin 'morhetz/gruvbox'
-Plugin 'kristijanhusak/vim-hybrid-material'
+"Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'rdavison/Libertine'
+"Plugin 'sickill/vim-monokai'
 call vundle#end()
 filetype plugin indent on
 
-"set background=dark
-"colorscheme hybrid_material
-"colorscheme hybrid_reverse
 let g:libertine_Sunset = 1
-colorscheme libertine
-
-"   Airline (bottom bar)
-let g:airline_theme = "hybrid"
+" from my local file in `.colors`
+colorscheme firebird
 
 "   Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
-"   Switch to spaces of width 4
-set tabstop=4
-set shiftwidth=4
+"   Switch to spaces of width 2
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set hlsearch
 set nu "show line numbers
-set ruler "   Show the column and such
+"set ruler "   Show the column and such
 syntax on
+set shell=zsh
 
+let g:airline_theme = "hybrid"
 
 "   For makefiles, turn tabs back on
 autocmd FileType make setlocal noexpandtab
 
 "   Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_quiet_messages = { "type": "style" }
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_auto_jump = 0
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -86,3 +82,5 @@ let g:rbpt_loadcmd_toggle = 0
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
+
+au BufReadPost *.pl set syntax=prolog
