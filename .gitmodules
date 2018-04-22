@@ -1,0 +1,3 @@
+[submodule "configs/firebird"]
+	path = configs/firebird
+	url = github.com:the-mikedavis/firebird.git
