@@ -1,4 +1,9 @@
-alias e="exa"
+if type "$exa" > /dev/null; then
+  alias e="exa"
+else
+  alias e="ls --color='auto'"
+fi
+
 alias c="cd"
 alias v="vim"
 alias g="git"
