@@ -1,5 +1,6 @@
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 rupa/z
-denysdovhan/spaceship-prompt
+#denysdovhan/spaceship-prompt
 lukechilds/zsh-nvm
+geometry-zsh/geometry

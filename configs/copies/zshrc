@@ -1,7 +1,7 @@
-if type "$exa" > /dev/null; then
-  alias e="exa"
-else
+if ! type "exa" > /dev/null; then
   alias e="ls --color='auto'"
+else
+  alias e="exa"
 fi
 
 alias c="cd"
