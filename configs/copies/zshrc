@@ -9,6 +9,7 @@ antigen bundle tmuxinator
 antigen bundle pip
 antigen bundle lein
 antigen bundle mix
+export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 export NVM_LAZY_LOAD=true
 antigen bundle lukechilds/zsh-nvm
 
@@ -24,7 +25,24 @@ case `uname` in
     #antigen bundle zsh-users/zsh-apple-touchbar
   ;;
   Linux)
-     #Linux packages here
+     network_if=enx00051bb15dc1
+
+     if [ -e /opt/ros/kinetic/setup.zsh ] ; then
+       source /opt/ros/kinetic/setup.zsh
+     else
+       echo "ROS packages are not installed."
+     fi
+
+     export TARGET_IP=$(LANG=C /sbin/ifconfig $network_if | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*')
+     if [ -z "$TARGET_IP" ] ; then
+       echo "ROS_IP is not set."
+     else
+       export ROS_IP=$TARGET_IP
+     fi
+
+     export ROS_HOME=~/.ros
+     alias sim_mode='export ROS_MASTER_URI=http://localhost:11311 export PS1="\[\033[44;1;37m\]<local>\[\033[0m\]\w$ "'
+     alias hsrb_mode='export ROS_MASTER_URI=http://hsrb.local:11311 export PS1="\[\033[41;1;37m\]<hsrb>\[\033[0m\]\w$ "'
   ;;
 esac
 
