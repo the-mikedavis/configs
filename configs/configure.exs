@@ -9,4 +9,4 @@ for f <- files do
 end
 
 File.mkdir_p!(home <> "/.vim/colors")
-File.copy! "./firebird/firebird.vim", home <> "/.vim/colors/"
+File.copy! "./firebird/firebird.vim", home <> "/.vim/colors/firebird.vim"
