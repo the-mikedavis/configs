@@ -10,3 +10,4 @@ end
 
 File.mkdir_p!(home <> "/.vim/colors")
 File.copy! "./firebird/firebird.vim", home <> "/.vim/colors/firebird.vim"
+IO.puts "Moved firebird to ~/.vim/colors"
