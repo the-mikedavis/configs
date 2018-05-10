@@ -9,20 +9,21 @@
 	smudge = git-lfs smudge -- %f
 
 [alias]
-    git = !exec git
-    g = !exec git
-    sha = rev-parse HEAD
-    st = status
-    br = branch
-    cia = commit -a
-    ci = commit
-	co = checkout
-    unstage = reset HEAD --
-    ph = push
-    pl = pull
-    subdate = submodule update --init --recursive
-    what = clean -n
-    fuckthisnoise = clean -fd
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  git = !exec git
+  g = !exec git
+  sha = rev-parse HEAD
+  st = status
+  br = branch
+  cia = commit -a
+  ci = commit
+  co = checkout
+  unstage = reset HEAD --
+  ph = push
+  pl = pull
+  subdate = submodule update --init --recursive
+  what = clean -n
+  fuckthisnoise = clean -fd
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  count = rev-list --count
 [core]
 	editor = vim
