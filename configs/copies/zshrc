@@ -27,30 +27,28 @@ case `uname` in
     alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
   ;;
   Linux)
-     network_if=enx00051bb15dc1
-
      if [ -e /opt/ros/kinetic/setup.zsh ] ; then
        source /opt/ros/kinetic/setup.zsh
+       network_if=enx00051bb15dc1
+
+       export TARGET_IP=$(LANG=C /sbin/ifconfig $network_if | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*')
+       if [ -z "$TARGET_IP" ] ; then
+         echo "ROS_IP is not set."
+       else
+         export ROS_IP=$TARGET_IP
+       fi
+
+       export ROS_HOME=~/.ros
+       alias sim_mode='export ROS_MASTER_URI=http://localhost:11311 export PS1="\[\033[44;1;37m\]<local>\[\033[0m\]\w$ "'
+       alias hsrb_mode='export ROS_MASTER_URI=http://hsrb.local:11311 export PS1="\[\033[41;1;37m\]<hsrb>\[\033[0m\]\w$ "'
      else
        echo "ROS packages are not installed."
      fi
-
-     export TARGET_IP=$(LANG=C /sbin/ifconfig $network_if | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*')
-     if [ -z "$TARGET_IP" ] ; then
-       echo "ROS_IP is not set."
-     else
-       export ROS_IP=$TARGET_IP
-     fi
-
-     export ROS_HOME=~/.ros
-     alias sim_mode='export ROS_MASTER_URI=http://localhost:11311'
-     alias hsrb_mode='export ROS_MASTER_URI=http://hsrb.local:11311'
   ;;
 esac
 
 #antigen theme denysdovhan/spaceship-prompt spaceship
 antigen theme geometry-zsh/geometry
-antigen bundle the-mikedavis/geometry-ros-master
 
 antigen apply
 
