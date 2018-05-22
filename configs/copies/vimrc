@@ -3,18 +3,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-syntastic/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'guns/vim-clojure-static'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'tpope/vim-fireplace'
 Plugin 'kien/rainbow_parentheses.vim'
-"Plugin 'elixir-editors/vim-elixir'
-"Plugin 'slashmili/alchemist.vim'
-"Plugin 'sudar/vim-arduino-syntax'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'elmcast/elm-vim'
 Plugin 'sheerun/vim-polyglot'
 
 "Plugin 'kristijanhusak/vim-hybrid-material'
@@ -45,20 +40,6 @@ let g:airline_theme = "hybrid"
 "   For makefiles, turn tabs back on
 autocmd FileType make setlocal noexpandtab
 
-"   Syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_quiet_messages = { "type": "style" }
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_auto_jump = 0
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -84,3 +65,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
 au BufReadPost *.pl set syntax=prolog
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
