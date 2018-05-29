@@ -1,18 +1,19 @@
 [user]
-	name = Michael Davis
-	email = mcd164@miami.edu
+  name = Michael Davis
+  email = mcd164@miami.edu
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
 
 [alias]
   git = !exec git
   g = !exec git
   sha = rev-parse HEAD
   st = status
+  b = branch
   br = branch
   cia = commit -a
   ci = commit
@@ -25,5 +26,7 @@
   fuckthisnoise = clean -fd
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   count = rev-list --count
+  allmaster = submodule foreach --recursive git checkout master
+
 [core]
-	editor = vim
+  editor = vim
