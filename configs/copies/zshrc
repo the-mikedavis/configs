@@ -2,7 +2,7 @@ export EDITOR='vim'
 source $HOME/antigen.zsh
 
 antigen use oh-my-zsh
-export NVM_LAZY_LOAD=true
+#export NVM_LAZY_LOAD=true
 export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 
 antigen bundle git
@@ -25,6 +25,12 @@ case `uname` in
     #antigen bundle zsh-users/zsh-apple-touchbar
     alias less='vimpager'
     alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+    export PATH="$PATH:/Users/michael/.mix/escripts"
+    # add asdf version manager
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+    # alias it because of dvorak
+    alias aoeu='asdf'
   ;;
   Linux)
      if [ -e /opt/ros/kinetic/setup.zsh ] ; then
@@ -66,6 +72,27 @@ alias cr="clear"
 alias r="rm -rf"
 alias ty="type"
 alias weather='curl wttr.in'
+alias vtab='vim -p'
+alias vread='vim -p *'
+alias ve='vim -p *'
+
+if ! type "gr" > /dev/null; then
+  echo "\`git-run\` isn't active!"
+  if type npm > /dev/null; then
+    nvm use --lts
+    npm i -g git-run
+    unalias gr
+    . <(gr completion)
+  fi
+else
+  npm --version
+  unalias gr 2>/dev/null
+  . <(gr completion)
+  alias grs="gr status"
+  alias grd="gr discover"
+  alias grpl="gr pull"
+  alias grb="gr branch --list"
+fi
 
 function grepkill() {
   if ! type "ghead" > /dev/null; then
@@ -76,6 +103,11 @@ function grepkill() {
   kill $(ps -e | grep $1 | awk '{print $1}' | $HEAD_CMD -n -1)
 }
 
+# look for
+function lf() {
+  grep -r "$1" "${2:-.}"
+}
+
 alias -s md="vim"
 alias -s js="vim"
 alias -s json="vim"
@@ -83,4 +115,3 @@ alias -s ex="vim"
 alias -s exs="vim"
 alias -s txt="vim"
 alias -s html="vim"
-
