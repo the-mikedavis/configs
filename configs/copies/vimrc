@@ -71,3 +71,5 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+set backspace=indent,eol,start
