@@ -33,7 +33,7 @@ set hlsearch
 set nu "show line numbers
 "set ruler "   Show the column and such
 syntax on
-set shell=zsh
+set shell=/usr/local/bin/fish
 
 let g:airline_theme = "hybrid"
 
