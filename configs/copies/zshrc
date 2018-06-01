@@ -74,7 +74,7 @@ alias ty="type"
 alias weather='curl wttr.in'
 alias vtab='vim -p'
 alias vread='vim -p *'
-alias ve='vim -p *'
+alias ar="antigen reset"
 
 if ! type "gr" > /dev/null; then
   echo "\`git-run\` isn't active!"
@@ -106,6 +106,12 @@ function grepkill() {
 # look for
 function lf() {
   grep -r "$1" "${2:-.}"
+}
+
+# vim everything
+# read stuff in tabs
+function ve() {
+  vim -p ${1:-*}
 }
 
 alias -s md="vim"
