@@ -121,3 +121,6 @@ alias -s ex="vim"
 alias -s exs="vim"
 alias -s txt="vim"
 alias -s html="vim"
+
+# added by travis gem
+[ -f /Users/michael/.travis/travis.sh ] && source /Users/michael/.travis/travis.sh
