@@ -16,6 +16,29 @@ alias ty="type"
 funcsave ty
 alias aoeu="asdf"
 funcsave aoeu
+alias ex="vim -c 'Explore'"
+
+# mix
+alias m="mix"
+funcsave m
+alias mff="mix format --check-formatted"
+funcsave mff
+alias mfe="mix format --check-equivalent"
+funcsave mfe
+alias mb="mix bless"
+funcsave mb
+alias mfb="mix format --check-equivalent; and mix bless"
+funcsave mfb
+alias md="mix do"
+funcsave md
+alias mcc="mix do clean, compile"
+funcsave mcc
+alias mch="mix coveralls.html"
+
+function iet --description 'iex in test mode'
+  set -lx MIX_ENV test
+  iex $argv
+end
 
 function ve --description 'read everything in tabs'
   if test -d $argv[1]
@@ -28,10 +51,11 @@ function ve --description 'read everything in tabs'
 end
 funcsave ve
 
-function gerge --description 'take in a github merge locally'
+function gerge --description 'take in a github pr merge locally'
   set branch (git rev-parse --abbrev-ref HEAD)
   git checkout master
   git pull
   git branch -d $branch
+  git eggplant # prune origin stuff
 end
 funcsave gerge
