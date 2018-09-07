@@ -1,31 +1,32 @@
 export EDITOR='vim'
-source $HOME/antigen.zsh
+export ERL_AFLAGS='-kernel shell_history enabled'
+#source $HOME/antigen.zsh
 
-antigen use oh-my-zsh
+#antigen use oh-my-zsh
 #export NVM_LAZY_LOAD=true
-export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+#export PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 
-antigen bundle git
-antigen bundle tmuxinator
+#antigen bundle git
+#antigen bundle tmuxinator
 
-antigen bundle pip
-antigen bundle lein
-antigen bundle mix
-antigen bundle lukechilds/zsh-nvm
-
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle rupa/z
+#antigen bundle pip
+#antigen bundle lein
+#antigen bundle mix
+#antigen bundle lukechilds/zsh-nvm
+#
+#antigen bundle command-not-found
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-autosuggestions
+#antigen bundle rupa/z
 
 case `uname` in
   Darwin)
-    antigen bundle brew
-    antigen bundle gem
+#    antigen bundle brew
+#    antigen bundle gem
     #antigen bundle zsh-users/zsh-apple-touchbar
     alias less='vimpager'
     alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
-    export PATH="$PATH:/Users/michael/.mix/escripts"
+#    export PATH="$PATH:/Users/michael/.mix/escripts"
     # add asdf version manager
     . $HOME/.asdf/asdf.sh
     . $HOME/.asdf/completions/asdf.bash
@@ -54,9 +55,9 @@ case `uname` in
 esac
 
 #antigen theme denysdovhan/spaceship-prompt spaceship
-antigen theme geometry-zsh/geometry
+#antigen theme geometry-zsh/geometry
 
-antigen apply
+#antigen apply
 
 if ! type "exa" > /dev/null; then
   alias e="ls --color='auto'"
@@ -74,7 +75,7 @@ alias ty="type"
 alias weather='curl wttr.in'
 alias vtab='vim -p'
 alias vread='vim -p *'
-alias ar="antigen reset"
+#alias ar="antigen reset"
 
 if ! type "gr" > /dev/null; then
   echo "\`git-run\` isn't active!"
