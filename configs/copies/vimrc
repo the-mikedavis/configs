@@ -13,6 +13,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'tpope/vim-fugitive'
+Plugin 'makerj/vim-pdf'
+Plugin 'lervag/vimtex'
 
 "Plugin 'kristijanhusak/vim-hybrid-material'
 "Plugin 'rdavison/Libertine'
@@ -22,6 +24,7 @@ Plugin 'the-mikedavis/firebird'
 call vundle#end()
 filetype plugin indent on
 
+let g:polyglot_disabled = ['latex']
 let g:libertine_Sunset = 1
 " from my local file in `.colors`
 "colorscheme firebird
@@ -36,6 +39,8 @@ set shiftwidth=2
 set expandtab
 set hlsearch
 set nu "show line numbers
+" do hybrid line numbers
+"set number relativenumber
 "set ruler "   Show the column and such
 syntax on
 " fish conflicts with Vundle.vim
