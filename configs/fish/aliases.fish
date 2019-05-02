@@ -19,8 +19,6 @@ funcsave aoeu
 alias ex="vim -c 'Explore'"
 
 # mix
-alias m="mix"
-funcsave m
 alias mff="mix format --check-formatted"
 funcsave mff
 alias mfe="mix format --check-equivalent"

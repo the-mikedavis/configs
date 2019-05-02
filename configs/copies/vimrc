@@ -1,25 +1,47 @@
 set nocompatible
+set hidden
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" package manager
 Plugin 'VundleVim/Vundle.vim'
+" Control Space
+Plugin 'vim-ctrlspace/vim-ctrlspace'
+" The javascript syntax/formatting I prefer
 Plugin 'jelera/vim-javascript-syntax'
+" Clojure stuff
 "Plugin 'guns/vim-clojure-static'
+" Clojure stuff
 "Plugin 'tpope/vim-classpath'
+" more Clojure stuff
 "Plugin 'tpope/vim-fireplace'
-Plugin 'kien/rainbow_parentheses.vim'
+" In time-out because it conflicts with cmake highlighting
+"Plugin 'kien/rainbow_parentheses.vim'
+" The bottom bar
 Plugin 'vim-airline/vim-airline'
+" Themes for that bottom bar
 Plugin 'vim-airline/vim-airline-themes'
+" Syntax highlighting/formatting for many many languages
 Plugin 'sheerun/vim-polyglot'
+" Wakatime code dashboard integration
 Plugin 'wakatime/vim-wakatime'
+" I forget
 Plugin 'tpope/vim-fugitive'
+" PDF viewer
 Plugin 'makerj/vim-pdf'
+" Latex compiler
 Plugin 'lervag/vimtex'
-
+" Elixir Formatter
+"Plugin 'mhinz/vim-mix-format'
+" decent theme
 "Plugin 'kristijanhusak/vim-hybrid-material'
-"Plugin 'rdavison/Libertine'
-"Plugin 'sickill/vim-monokai'
+" solid theme
+Plugin 'rdavison/Libertine'
+" scribble syntax highlighting
+"Plugin 'nickng/vim-scribble'
+" colorscheme pack
 Plugin 'flazz/vim-colorschemes'
+" my colorscheme
 Plugin 'the-mikedavis/firebird'
 call vundle#end()
 filetype plugin indent on
@@ -28,11 +50,15 @@ let g:polyglot_disabled = ['latex']
 let g:libertine_Sunset = 1
 " from my local file in `.colors`
 "colorscheme firebird
-colorscheme onedark
+"colorscheme onedark
+colorscheme libertine
 
 "   Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+"   keep selection after indentation
+vnoremap < <gv
+vnoremap > >gv
 "   Switch to spaces of width 2
 set tabstop=2
 set shiftwidth=2
@@ -45,44 +71,61 @@ set nu "show line numbers
 syntax on
 " fish conflicts with Vundle.vim
 " use zsh when using PluginInstall
-set shell=/usr/local/bin/fish
+"set shell=/usr/local/bin/fish
 "set shell=/usr/local/bin/zsh
+set shell=/bin/bash
 
 let g:airline_theme = "hybrid"
 
 "   For makefiles, turn tabs back on
 autocmd FileType make setlocal noexpandtab
 
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 16
+"let g:rbpt_loadcmd_toggle = 0
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
 
+" not perl, prolog
 au BufReadPost *.pl set syntax=prolog
 
+" draw a gray color column at col 80
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=98
 else
   au BufWinEnter * let w:matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
+if has('gui_running') || has('nvim')
+  hi Normal guifg=#afafaf guibg=#242424
+else
+  hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
+  let &t_ti = &t_ti . "\033]10;#afafaf\007\033]11;#242424\007"
+  let &t_te = &t_te . "\033]110\007\033]111\007"
+endif
+
+" allow backspacing on newlines in vim 8
 set backspace=indent,eol,start
+
+" configure the mix formatting plugin
+let g:mix_format_on_save = 1
+let g:mix_format_options = '--check-equivalent'
+let g:mix_format_silent_errors = 1

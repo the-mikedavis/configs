@@ -40,14 +40,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|Z/Ctrl|Q/Cmd |  Jj  |  Kk  |  Xx  |  Bb  |  Mm  |  Ww  |  Vv  |  Zz  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |Bacs/L|Backs |Space |Entr/R|      |      |      |      |
+ * |  alt |      |      |      |Bacs/L|Backs |Space |Entr/R|      |      |      | alt  |
  * `-----------------------------------------------------------------------------------'
  */
 [_PDVORAK] = LAYOUT( \
   KC_TAB,              KC_SCLN,        KC_COMM,     KC_DOT,  KC_P,                KC_Y,    KC_F,   KC_G,               KC_C,    KC_R,    KC_L,    KC_SLSH, \
   LT(_ADJUST, KC_ESC), KC_A,           KC_O,        KC_E,    KC_U,                KC_I,    KC_D,   KC_H,               KC_T,    KC_N,    KC_S,    KC_MINS, \
   KC_LSFT,             CTL_T(KC_QUOT), GUI_T(KC_Q), KC_J,    KC_K,                KC_X,    KC_B,   KC_M,               KC_W,    KC_V,    KC_Z,    KC_RSFT, \
-  XXXXXXX,             MO(_FUNCTION),  XXXXXXX,     XXXXXXX, LT(_LOWER, KC_BSPC), KC_BSPC, KC_SPC, LT(_RAISE, KC_ENT), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX  \
+  KC_LALT,             MO(_FUNCTION),  XXXXXXX,     XXXXXXX, LT(_LOWER, KC_BSPC), KC_BSPC, KC_SPC, LT(_RAISE, KC_ENT), XXXXXXX, XXXXXXX, XXXXXXX, KC_RALT  \
 ),
 
 /* Lower
