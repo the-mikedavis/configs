@@ -57,3 +57,6 @@ function gerge --description 'take in a github pr merge locally'
   git eggplant # prune origin stuff
 end
 funcsave gerge
+ 
+alias drs 'darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix'
+funcsave drs
