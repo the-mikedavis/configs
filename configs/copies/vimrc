@@ -25,8 +25,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sheerun/vim-polyglot'
 " Wakatime code dashboard integration
 Plugin 'wakatime/vim-wakatime'
-" I forget
+" git integration
 Plugin 'tpope/vim-fugitive'
+" projectionist
+Plugin 'tpope/vim-projectionist'
 " PDF viewer
 Plugin 'makerj/vim-pdf'
 " Latex compiler
@@ -43,6 +45,8 @@ Plugin 'rdavison/Libertine'
 Plugin 'flazz/vim-colorschemes'
 " my colorscheme
 Plugin 'the-mikedavis/firebird'
+Plugin 'mcchrish/nnn.vim'
+Plugin 'tpope/vim-abolish'
 call vundle#end()
 filetype plugin indent on
 
@@ -66,9 +70,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set hlsearch
-set nu "show line numbers
+"set nu "show line numbers
 " do hybrid line numbers
-"set number relativenumber
+set number relativenumber
 "set ruler "   Show the column and such
 " fish conflicts with Vundle.vim
 " use zsh when using PluginInstall
@@ -172,3 +176,12 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='✱'
+
+let g:nnn#action = { '<c-v>': 'vsplit' }
+
+" turn on smart case search
+set ignorecase
+set smartcase
+" turn off 'fIlE cHaNgEd' thing
+set noconfirm
+"set iskeyword-=_
