@@ -47,6 +47,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'the-mikedavis/firebird'
 Plugin 'mcchrish/nnn.vim'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 filetype plugin indent on
 
@@ -185,3 +186,6 @@ set smartcase
 " turn off 'fIlE cHaNgEd' thing
 set noconfirm
 "set iskeyword-=_
+
+command Coverage call system('open cover/excoveralls.html')
+command Docs call system('open doc/index.html')
