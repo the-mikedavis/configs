@@ -5,6 +5,8 @@ cd ~
 ln -s -f ~/dotfiles/configs/copies/gitconfig ~/.gitconfig
 ln -s -f ~/dotfiles/configs/copies/vimrc ~/.vimrc
 ln -s -f ~/dotfiles/configs/copies/tmux.conf ~/.tmux.conf
+ln -s -f ~/dotfiles/configs/copies/alacritty.yml ~/.config/alacritty/
+ln -s -f ~/dotfiles/configs/copies/projections.json ~/.config/.projections.json
 
 ln -s -f ~/dotfiles/configs/fish/config.fish ~/.config/fish/config.fish
 ln -s -f ~/dotfiles/configs/fish/fishfile ~/.config/fish/fishfile
