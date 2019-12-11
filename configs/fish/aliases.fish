@@ -60,3 +60,7 @@ funcsave gerge
  
 alias drs 'darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix'
 funcsave drs
+
+function nfic --description 'clone a repo from NFIBrokerage'
+  git clone git@github.com:NFIBrokerage/$argv
+end
