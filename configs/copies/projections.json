@@ -45,5 +45,8 @@
   "mix.lock": {
     "type": "lock",
     "alternate": "mix.lock"
+  },
+  "README.md": {
+    "type": "readme"
   }
 }
