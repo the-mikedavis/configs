@@ -1,6 +1,6 @@
-source ~/.config/fish/functions/aliases.fish
+source ~/.config/fish/aliases.fish
 
-# set -Ux EDITOR vim
+set -Ux EDITOR vim
 set -Ux ERL_AFLAGS "-kernel shell_history enabled"
 
 if test -d ~/.asdf
