@@ -54,7 +54,6 @@
     xclip
     exa
     vagrant
-    virtualbox
     gnupg
     pinentry_ncurses
     tmux
@@ -62,6 +61,8 @@
     thefuck
     htop
   ];
+
+  virtualisation.virtualbox.host.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -112,7 +113,7 @@
 
   users.users.michael = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "neworkmanager" ];
     home = "/home/michael";
     shell = pkgs.fish;
   };
