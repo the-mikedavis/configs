@@ -1,7 +1,7 @@
 [user]
   name = Michael Davis
   email = mcarsondavis@gmail.com
-	signingkey = 410927DD620D7A5F
+  signingkey = 410927DD620D7A5F
 
 [filter "lfs"]
   process = git-lfs filter-process
@@ -25,7 +25,8 @@
   unstage = reset HEAD --
   ph = push
   pl = pull
-	d = diff
+  pull = pull --tags
+  d = diff
   subdate = submodule update --init --recursive
   submaster = submodule foreach git checkout master
   subpull = submodule foreach git pull
@@ -43,16 +44,19 @@
   merge = merge -S
   m = merge
   lt = !git tag --sort=version:refname | tail -n 1
+  mes = log -1 --pretty=%B
+  fuckoff = checkout -- .
+  ignore-committed = update-index --assume-unchanged
 
 [core]
   editor = vim
   excludesfile = ~/.gitignore
 [push]
   followTags = true
-	default = simple
+  default = simple
 [hub]
-	protocol = ssh
+  protocol = ssh
 [commit]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	program = gpg
+  program = gpg
