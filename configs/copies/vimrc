@@ -1,61 +1,65 @@
+" ensure plug is installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 set nocompatible
 set hidden
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" package manager
-Plugin 'VundleVim/Vundle.vim'
+set encoding=utf-8
+call plug#begin('~/.vim/plugged')
 " Control Space
-Plugin 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 " The javascript syntax/formatting I prefer
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax'
 " Clojure stuff
-"Plugin 'guns/vim-clojure-static'
+"Plug 'guns/vim-clojure-static'
 " Clojure stuff
-"Plugin 'tpope/vim-classpath'
+"Plug 'tpope/vim-classpath'
 " more Clojure stuff
-"Plugin 'tpope/vim-fireplace'
+"Plug 'tpope/vim-fireplace'
 " In time-out because it conflicts with cmake highlighting
-"Plugin 'kien/rainbow_parentheses.vim'
+"Plug 'kien/rainbow_parentheses.vim'
 " The bottom bar
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Themes for that bottom bar
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 " Syntax highlighting/formatting for many many languages
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " Wakatime code dashboard integration
-Plugin 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 " git integration
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " projectionist
-Plugin 'tpope/vim-projectionist'
+Plug 'tpope/vim-projectionist'
 " PDF viewer
-Plugin 'makerj/vim-pdf'
+Plug 'makerj/vim-pdf'
 " Latex compiler
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 " Elixir Formatter
-"Plugin 'mhinz/vim-mix-format'
+"Plug 'mhinz/vim-mix-format'
 " decent theme
-"Plugin 'kristijanhusak/vim-hybrid-material'
+"Plug 'kristijanhusak/vim-hybrid-material'
 " solid theme
-Plugin 'rdavison/Libertine'
+" Plug 'rdavison/Libertine'
 " scribble syntax highlighting
-"Plugin 'nickng/vim-scribble'
+"Plug 'nickng/vim-scribble'
 " colorscheme pack
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 " my colorscheme
-Plugin 'the-mikedavis/firebird'
-Plugin 'mcchrish/nnn.vim'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'smallwat3r/efficient'
-call vundle#end()
-filetype plugin indent on
+Plug 'the-mikedavis/firebird'
+Plug 'mcchrish/nnn.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'smallwat3r/efficient', { 'commit': 'b895b0c393345a8657b3d8477d6a14132ada64b3' }
+call plug#end()
 
 let g:polyglot_disabled = ['latex']
 let g:libertine_Sunset = 1
 packadd! onedark.vim
-syntax on
+
+syntax enable
 " from my local file in `.colors`
 "colorscheme firebird
 "colorscheme onedark
