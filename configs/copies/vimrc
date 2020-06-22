@@ -52,12 +52,13 @@ Plug 'the-mikedavis/firebird'
 Plug 'mcchrish/nnn.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'smallwat3r/efficient', { 'commit': 'b895b0c393345a8657b3d8477d6a14132ada64b3' }
+Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:polyglot_disabled = ['latex']
 let g:libertine_Sunset = 1
-packadd! onedark.vim
 
 syntax enable
 " from my local file in `.colors`
@@ -86,7 +87,7 @@ set shell=fish
 "set shell=/usr/local/bin/zsh
 "set shell=/bin/bash
 
-let g:airline_theme = "onedark"
+" let g:airline_theme = onedark
 
 "   For makefiles, turn tabs back on
 autocmd FileType make setlocal noexpandtab
@@ -129,7 +130,7 @@ if has('gui_running') || has('nvim')
   hi Normal guifg=#afafaf guibg=#242424
 else
   hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
-  let &t_ti = &t_ti . "\033]10;#afafaf\007\033]11;#242424\007"
+  " let &t_ti = &t_ti . "\033]10;#afafaf\007\033]11;#242424\007"
   let &t_te = &t_te . "\033]110\007\033]111\007"
 endif
 
@@ -195,4 +196,28 @@ set noconfirm
 command Coverage call system('open cover/excoveralls.html')
 command Docs call system('open doc/index.html')
 
-colorscheme efficient
+" ale configuration
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+
+let g:ale_linters = {}
+let g:ale_linters.elixir = ['elixir-ls']
+
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers.elixir = ['mix_format']
+
+let g:ale_sign_column_always = 1
+let g:ale_elixir_credo_strict = 1
+
+let g:ale_elixir_elixir_ls_release = expand("~/elixir-ls/rel")
+let g:ale_elixir_elixir_ls_config= {'elixirLS': {'dializerEnabled': v:false}}
+
+nnoremap dt :ALEGoToDefinition<cr>
+nnoremap df :ALEFix<cr>
+nnoremap K :ALEHover<cr>
+
+" end ale config
+
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+let g:airline#extensions#ale#enabled = 1
